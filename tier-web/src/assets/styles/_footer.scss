@@ -1,0 +1,21 @@
+.footer {
+  @include FLEX(100%, row);
+  justify-content: center;
+  align-items: center;
+  padding: rem(30px 0 30px);
+  margin-top: rem(70px);
+  border-top: 1px solid $logo-color;
+}
+
+.footer__copyright {
+  @include FLEX(auto, row);
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-header {
+  padding: 0;
+  margin: rem(0 10px 0 0);
+  font-size: $small-font;
+  color: $logo-color;
+}

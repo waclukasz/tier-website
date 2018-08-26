@@ -1,0 +1,58 @@
+.navbar {
+  @include FLEX(100%, row);
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(80px 50px 0 50px);
+  background-color: #ffffff6e;
+  z-index: 10000;
+}
+
+.navbar__link {
+  margin-right: rem(40px);
+  font-size: $medium-font;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  color: $grey;
+  z-index: 10000;
+}
+
+.router-link-exact-active {
+  color: $logo-color;
+  z-index: 10000;
+}
+
+.navbar__social {
+  display: flex;
+}
+
+.social-icon {
+  display: block;
+  width: rem(20px);
+  height: rem(20px);
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  margin-left: rem(20px);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  fill: green;
+  z-index: 1000;
+}
+
+.social-facebook {
+  @include BG_ICON('logo-facebook.png');
+}
+
+.social-twitter {
+  @include BG_ICON('logo-twitter.png');
+}
+
+.social-vimeo {
+  @include BG_ICON('logo-vimeo.png');
+}
+
+.social-youtube {
+  @include BG_ICON('logo-youtube.png');
+}

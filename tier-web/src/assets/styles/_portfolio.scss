@@ -1,0 +1,155 @@
+.portfolio__header {
+  @include FLEX(100%, column);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: rem(75vh);
+}
+
+.portfolio__particles {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: rem(60px);
+  left: 0;
+  right: 0;
+}
+
+.header__logo {
+  @include BG_IMAGE('logo.png');
+  width: rem(220px);
+  height: rem(220px);
+  margin-top: rem(100px);
+  border-radius: 100%;
+  background-color: #ffffff;
+  z-index: 100;
+
+  &--small {
+    width: rem(30px);
+    height: rem(30px);
+    margin: rem(0 50px 0 0);
+  }
+}
+
+.header__content {
+  border-radius: 100%;
+  margin-top: rem(50px);
+  text-align: center;
+  background-color: $white-color;
+  z-index: 100;
+}
+
+.header__slogan {
+  padding: 0;
+  margin: 0;
+  letter-spacing: rem(1px);
+  font-weight: bold;
+  color: $logo-color;
+}
+
+.portfolio__container {
+  @include FLEX(100%, row);
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: rem(50px 80px);
+}
+
+.portfolio__filter {
+  @include FLEX(100%, row);
+  align-items: center;
+  justify-content: center;
+  height: rem(50px);
+  margin-bottom: rem(110px);
+}
+
+.filter__method {
+  margin-right: rem(20px);
+  font-size: rem(16px);
+  padding-right: rem(10px);
+  border-right: 1px solid $grey;
+  color: $grey;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $logo-color;
+  }
+
+  &:last-of-type {
+    border: 0;
+  }
+}
+
+.filter--active {
+  color: $logo-color;
+}
+
+.portfolio__item {
+  @include FLEX(540px, row);
+  justify-content: center;
+  align-items: center;
+  height: rem(400px);
+  margin-bottom: rem(30px);
+  background-position: center;
+  background-size: cover;
+  border-radius: rem(5px);
+  filter: grayscale(100%);
+  cursor: pointer;
+
+  &:nth-of-type(2n + 0) {
+    height: rem(480px);
+  }
+  &:nth-of-type(4n + 0) {
+    height: rem(320px);
+  }
+  &:nth-of-type(7n + 2) {
+    height: rem(760px);
+  }
+
+  &--inactive {
+    filter: grayscale(0%);
+  }
+}
+
+.video-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: rem(5px);
+  border: 1px solid $logo-color;
+  background-color: $white-color;
+}
+
+.video-title {
+  padding: rem(0 100px);
+  text-transform: uppercase;
+  font-size: $super-large-font;
+  font-weight: 300;
+  letter-spacing: 5px;
+}
+
+.video-category {
+  font-size: $medium-font;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: $logo-color;
+}
+
+.gutter-size {
+  position: absolute;
+  width: rem(30px);
+  visibility: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

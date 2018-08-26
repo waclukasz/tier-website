@@ -1,0 +1,30 @@
+$grey: #6d6d6d;
+$bg-color: #f2fcff;
+$logo-color: #ff9f9f;
+$white-color: #ffffff;
+
+$small-font: rem(11px);
+$medium-font: rem(13px);
+$super-large-font: rem(28px);
+
+$image-path: '../images/';
+$icon-path: '../icons/';
+
+@mixin FLEX($width, $direction) {
+  display: flex;
+  flex-direction: $direction;
+  width: rem($width);
+}
+
+@mixin BG_IMAGE($path) {
+  background-image: url($image-path+$path);
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin BG_ICON($path) {
+  background-image: url($icon-path+$path);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
