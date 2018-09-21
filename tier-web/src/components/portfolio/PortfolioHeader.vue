@@ -1,26 +1,13 @@
 <template>
   <header class="portfolio__header">
-    <vue-particles
-      class="portfolio__particles"
-      color="#ff9f9f"
-      :particleOpacity="0.5"
-      :particlesNumber="20"
-      shapeType="polygon"
-      :particleSize="2"
-      linesColor="#ff9f9f"
-      :linesWidth="2"
-      :lineLinked="true"
-      :lineOpacity="0.2"
-      :linesDistance="290"
-      :moveSpeed="2"
-      :hoverEffect="true"
-      hoverMode="grab"
-      :clickEffect="false"
-      clickMode="push"
+    <div
+      class="animated-circle"
+      v-if="startIntro"
     >
-    </vue-particles>
+    </div>
     <div
       class="header__logo"
+      v-if="!startIntro"
     >
     </div>
     <div class="header__content">
@@ -36,11 +23,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
-      slogans: ['the', 'vision', '| must be |', 'glory']
+      slogans: ['VISION', 'MUST', 'BE', 'GLORY.']
     }
+  },
+  computed: {
+    ...mapGetters(['startIntro'])
   }
 }
 </script>

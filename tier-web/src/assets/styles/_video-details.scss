@@ -1,0 +1,131 @@
+.video__box {
+  @include FLEX(100%, column);
+  padding: rem(100px 6%);
+
+  &--animated {
+    animation-name: fade;
+    animation-duration: 1.9s;
+  }
+}
+
+.video__back-button {
+  @include FLEX(270px, row);
+  align-items: center;
+  margin-bottom: rem(50px);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back__arrow {
+  @include BG_ICON('back_arrow.png');
+  width: rem(15px);
+  height: rem(20px);
+  background-repeat: no-repeat;
+}
+
+.back__text {
+  margin-left: rem(20px);
+  font-size: $large-font;
+  letter-spacing: rem(3px);
+  color: $logo-color;
+}
+
+.video__item {
+  position: relative;
+  width: 100%;
+  height: rem(600px);
+  box-shadow: 3px 9px 30px rgba(0, 0, 0, 0.06);
+}
+
+.video__frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.title__container {
+  @include FLEX(100%, row);
+  justify-content: center;
+  margin-top: rem(80px);
+}
+
+.title__content,
+.title__header {
+  @include FLEX(auto, row);
+}
+
+.title__header {
+  font-size: rem(60px);
+  margin-right: rem(60px);
+  color: $logo-color;
+}
+
+.title__content {
+  flex-direction: column;
+}
+
+.title-hyphen {
+  width: rem(70px);
+  height: rem(2px);
+  margin-right: rem(15px);
+  background-color: $logo-color;
+}
+
+.header-content {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.content-title {
+  margin-top: rem(20px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title__description {
+  max-width: rem(400px);
+  margin-top: rem(50px);
+  text-align: justify;
+  line-height: rem(23px);
+  letter-spacing: 0.5px;
+  color: $grey;
+}
+
+.video__map {
+  @include FLEX(100%, row);
+  flex-wrap: wrap;
+  margin-top: rem(200px);
+}
+
+.map__item {
+  @include FLEX(auto, row);
+  justify-content: center;
+  align-items: center;
+}
+
+.map__link {
+  font-size: rem(13px);
+  color: $secondary-color;
+  transition: color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: $logo-color;
+  }
+
+  &--active {
+    color: $logo-color;
+  }
+}
+
+.map__separator {
+  width: rem(7px);
+  height: rem(7px);
+  margin: rem(0 15px);
+  border-radius: rem(15px);
+  background-color: $secondary-color;
+}

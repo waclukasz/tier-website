@@ -3,6 +3,10 @@
     <div class="navbar__site-mapActions">
       <router-link
         class="navbar__link"
+        :class="{
+          'navbar__link--exact-active': isActive,
+          'navbar__link--active': linkActive
+        }"
         :to="{ name: 'home' }"
       >
         {{ 'Portfolio' | capitalize }}
@@ -20,6 +24,11 @@
       >
       {{ 'contact' | capitalize }}
       </router-link>
+    </div>
+    <div
+      class="header__logo header__logo--navbar"
+      v-if="isActive"
+    >
     </div>
     <div class="navbar__social">
       <a
@@ -50,6 +59,20 @@
 import filters from '@/components/mixins/filters'
 
 export default {
-  mixins: [filters]
+  mixins: [filters],
+  computed: {
+    isActive() {
+      if (this.$route.name !== 'home') {
+        return true
+      }
+      return false
+    },
+    linkActive() {
+      if (this.$route.name === 'video') {
+        return true
+      }
+      return false
+    }
+  }
 }
 </script>

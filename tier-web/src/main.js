@@ -2,15 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { VueMasonryPlugin } from 'vue-masonry'
-import VueParticles from 'vue-particles'
+import VueMasonry from 'vue-masonry-css'
 
 import styles from './assets/styles/main.scss'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
-Vue.use(VueMasonryPlugin)
-Vue.use(VueParticles)
+Vue.use(VueMasonry)
 
 new Vue({
   router,

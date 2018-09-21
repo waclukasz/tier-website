@@ -1,0 +1,78 @@
+.animation-container {
+  @include FLEX(100vw, row);
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: $white-color;
+  z-index: 100000;
+  animation-name: showOff;
+  animation-duration: 1.1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.animated-circle {
+  width: rem(17px);
+  height: rem(17px);
+  margin-top: rem(100px);
+  border: 2px solid $logo-color;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  z-index: 1000000;
+  animation-name: pulsHigh, pulsHigh, pulsHigh, transformToLogo;
+  animation-duration: 0.4s, 0.4s, 0.4s, 0.7s;
+  animation-delay: 0.2s, 0.8s, 1.4s, 1.8s;
+  animation-fill-mode: none, none, forwards, forwards;
+  animation-timing-function: linear, linear, linear,
+    cubic-bezier(0, 0.57, 0, 1.01);
+  animation-iteration-count: 1;
+}
+
+@keyframes pulsHigh {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.6);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes transformToLogo {
+  from {
+    border: none;
+    width: rem(17px);
+    height: rem(17px);
+  }
+  to {
+    @include BG_IMAGE('logo.png');
+    width: rem(220px);
+    height: rem(220px);
+    border: none;
+  }
+}
+
+@keyframes showOff {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

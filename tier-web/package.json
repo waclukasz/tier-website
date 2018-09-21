@@ -10,7 +10,6 @@
   "dependencies": {
     "sass-rem": "^2.0.1",
     "vue": "^2.5.16",
-    "vue-masonry": "^0.11.5",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -21,7 +20,7 @@
     "@vue/eslint-config-standard": "^3.0.0-rc.10",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-particles": "^1.0.9",
+    "vue-masonry-css": "^1.0.3",
     "vue-template-compiler": "^2.5.16"
   }
 }

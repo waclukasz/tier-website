@@ -1,35 +1,51 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import allViedos from './portfolio-data/portfolio-data'
+import allVideos from './portfolio-data/portfolio-data'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    allViedos,
+    allVideos,
+    selectedVideo: null,
     allfilters: {
       methods: {
         all: 'all',
         music: 'music',
         commercial: 'commercial',
-        reportage: 'reportage'
+        events: 'events'
       },
       choosed: 'all'
-    }
+    },
+    startIntro: true
   },
   getters: {
-    allViedos: state => state.allViedos,
-    allfilters: state => state.allfilters
+    allVideos: state => state.allVideos,
+    selectedVideo: state => state.selectedVideo,
+    allfilters: state => state.allfilters,
+    startIntro: state => state.startIntro
   },
   mutations: {
+    SELECT_VIDEO(state, video) {
+      state.selectedVideo = video
+    },
     CHOOSE_METHOD(state, method) {
       state.allfilters.choosed = method
+    },
+    TURN_INTRO_OFF(state, value) {
+      state.startIntro = false
     }
   },
   actions: {
+    selectVideo({ commit }, video) {
+      commit('SELECT_VIDEO', video)
+    },
     chooseMethod({ commit }, method) {
       commit('CHOOSE_METHOD', method)
+    },
+    turnIntroOff({ commit }, value) {
+      commit('TURN_INTRO_OFF', value)
     }
   }
 })

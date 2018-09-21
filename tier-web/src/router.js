@@ -23,13 +23,14 @@ export default new Router({
       component: VideoPage,
       beforeEnter(to, from, next) {
         const videoID = Number(to.params.id)
-        const allViedos = store.getters.allViedos
+        const allVideos = store.getters.allVideos
 
-        const videoExist = allViedos.filter(video => {
+        const selectedVideo = allVideos.filter(video => {
           return video.id === videoID
         })
 
-        if (videoExist.length) {
+        if (selectedVideo.length) {
+          store.state.selectedVideo = selectedVideo[0]
           next()
         } else {
           next({
@@ -46,5 +47,8 @@ export default new Router({
       name: 'contact',
       path: '/contact'
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 })

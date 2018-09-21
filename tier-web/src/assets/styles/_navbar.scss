@@ -2,8 +2,8 @@
   @include FLEX(100%, row);
   align-items: center;
   justify-content: space-between;
-  padding: rem(80px 50px 0 50px);
-  background-color: #ffffff6e;
+  min-height: rem(124px);
+  padding: rem(64px 6% 0 6%);
   z-index: 10000;
 }
 
@@ -12,8 +12,13 @@
   font-size: $medium-font;
   text-decoration: none;
   letter-spacing: 0.4px;
-  color: $grey;
+  color: $secondary-color;
   z-index: 10000;
+
+  &--active {
+    color: $logo-color;
+    z-index: 10000;
+  }
 }
 
 .router-link-exact-active {
@@ -37,8 +42,13 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   background-color: transparent;
-  fill: green;
+  cursor: pointer;
   z-index: 1000;
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: brightness(60%);
+  }
 }
 
 .social-facebook {

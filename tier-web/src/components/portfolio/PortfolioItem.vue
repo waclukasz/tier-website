@@ -1,8 +1,7 @@
 <template>
   <div
-    class="portfolio__item"
     :class="{ 'portfolio__item--inactive': isShowed}"
-    :style="{ backgroundImage: backgroundURL }"
+    :style="{ backgroundImage: backgroundURL, height: imageHeight }"
     @mouseover="isShowed = true"
     @mouseleave="isShowed = false"
   >
@@ -24,7 +23,6 @@
         </p>
       </div>
     </transition>
-    <div class="gutter-size"></div>
   </div>
 </template>
 
@@ -44,6 +42,9 @@ export default {
   computed: {
     backgroundURL() {
       return `url(${require(`images/${this.video.image}`)})`
+    },
+    imageHeight() {
+      return this.video.height
     }
   },
   methods: {

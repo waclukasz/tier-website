@@ -11,41 +11,43 @@
         {{ filterItem }}
       </button>
     </div>
-    <div
+    <masonry
       class="portfolio__all-videos"
-      v-masonry
-      transition-duration="0.4s"
-      item-selector=".portfolio__item"
-      origin-left="true"
-      origin-top="true"
-      fit-width="true"
-      horizontal-order="true"
-      gutter=".gutter-size"
+      :cols="{ default: 2 }"
+      :gutter="15"
     >
       <PortfolioItem
-        vue-masonry-tile
+        class="portfolio__item"
         v-for="(video, index) in portfolio"
         :key="index"
         :video="video"
       />
-    </div>
+    </masonry>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import PortfolioItem from './PortfolioItem'
-import PortfolioData from '@/portfolio-data/portfolio-data'
 
 export default {
   computed: {
-    ...mapGetters(['allViedos', 'allfilters']),
+    ...mapGetters(['allVideos', 'allfilters']),
     portfolio() {
-      return PortfolioData
+      if (this.allfilters.choosed === 'all') {
+        return this.allVideos
+      }
+      return this.allVideos.filter(
+        video => video.category === this.allfilters.choosed
+      )
     }
   },
   methods: {
-    ...mapActions(['chooseMethod'])
+    ...mapActions(['chooseMethod']),
+    filterVideos(filterItem) {
+      this.chooseMethod(filterItem)
+      this.$redrawVueMasonry()
+    }
   },
   components: {
     PortfolioItem
