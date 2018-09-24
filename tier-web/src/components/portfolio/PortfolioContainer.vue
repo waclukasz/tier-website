@@ -6,13 +6,14 @@
         :class="{'filter--active': filterItem === allfilters.choosed}"
         v-for="(filterItem, index) in allfilters.methods"
         :key="index"
-        @click="chooseMethod(filterItem)"
+        @click="filterVideos(filterItem)"
       >
         {{ filterItem }}
       </button>
     </div>
     <masonry
       class="portfolio__all-videos"
+      :class="{'portfolio__all-videos--active': isActive}"
       :cols="{ default: 2 }"
       :gutter="15"
     >
@@ -31,6 +32,11 @@ import { mapGetters, mapActions } from 'vuex'
 import PortfolioItem from './PortfolioItem'
 
 export default {
+  data() {
+    return {
+      isActive: false
+    }
+  },
   computed: {
     ...mapGetters(['allVideos', 'allfilters']),
     portfolio() {
@@ -45,8 +51,11 @@ export default {
   methods: {
     ...mapActions(['chooseMethod']),
     filterVideos(filterItem) {
+      this.isActive = true
+      setTimeout(() => {
+        this.isActive = false
+      }, 800)
       this.chooseMethod(filterItem)
-      this.$redrawVueMasonry()
     }
   },
   components: {

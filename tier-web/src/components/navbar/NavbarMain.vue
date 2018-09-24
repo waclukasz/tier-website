@@ -15,14 +15,14 @@
         class="navbar__link"
         :to="{ name: 'about' }"
       >
-      {{ 'about' | capitalize }}
+      {{ 'o nas' | capitalize }}
 
       </router-link>
       <router-link
         class="navbar__link"
         :to="{ name: 'contact' }"
       >
-      {{ 'contact' | capitalize }}
+      {{ 'kontakt' | capitalize }}
       </router-link>
     </div>
     <div

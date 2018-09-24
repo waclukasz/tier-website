@@ -14,10 +14,15 @@
   letter-spacing: 0.4px;
   color: $secondary-color;
   z-index: 10000;
+  transition: color 0.2s;
 
   &--active {
     color: $logo-color;
     z-index: 10000;
+  }
+
+  &:hover {
+    color: $logo-color;
   }
 }
 

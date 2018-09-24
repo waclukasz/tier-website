@@ -10,7 +10,9 @@
   "dependencies": {
     "sass-rem": "^2.0.1",
     "vue": "^2.5.16",
+    "vue-radial-progress": "^0.2.10",
     "vue-router": "^3.0.1",
+    "vue-vimeo-player": "0.0.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

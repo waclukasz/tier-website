@@ -4,6 +4,7 @@ import store from './store'
 
 import PortfolioTemplate from '@/components/portfolio/PortfolioTemplate'
 import VideoPage from '@/components/video/VideoPage'
+import AboutPage from '@/components/about/AboutTemplate'
 
 Vue.use(Router)
 
@@ -41,7 +42,8 @@ export default new Router({
     },
     {
       name: 'about',
-      path: '/about'
+      path: '/about',
+      component: AboutPage
     },
     {
       name: 'contact',

@@ -1,0 +1,156 @@
+.about__container {
+  @include FLEX(100%, column);
+  align-items: center;
+  padding: rem(100px 0);
+}
+
+.about__picture {
+  @include BG_IMAGE('about_pic.jpg');
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  margin-bottom: rem(260px);
+  border-radius: 3px;
+  background-repeat: no-repeat;
+}
+
+.about__description {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: rem(800px);
+  height: rem(380px);
+  padding: rem(40px);
+  border-radius: 3px;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+  background-color: $bg-color;
+  transform: translate(-50%, 50%);
+}
+
+.about__header,
+.about__content {
+  transform: translateY(0);
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 0.3;
+  animation-fill-mode: forwards;
+}
+
+.about__header {
+  margin: 0;
+  margin-bottom: rem(30px);
+  padding: 0;
+  font-size: rem(28px);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: $logo-color;
+}
+
+.about__content,
+.crew__description {
+  font-size: rem(14px);
+  line-height: rem(25px);
+  text-align: justify;
+  color: $grey;
+}
+
+.info__section {
+  width: 100%;
+  padding: rem(0 6%);
+}
+
+.info__crew {
+  @include FLEX(100%, row);
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: rem(100px);
+}
+
+.crew__item {
+  padding: rem(40px);
+  margin-bottom: rem(40px);
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.crew__image {
+  width: rem(200px);
+  height: rem(200px);
+  margin-bottom: rem(30px);
+  border-radius: 3px;
+  filter: grayscale(100%);
+
+  &--wojtala {
+    @include BG_IMAGE('wojtala.jpg');
+  }
+
+  &--roland {
+    @include BG_IMAGE('roland.jpg');
+  }
+
+  &--tokarz {
+    @include BG_IMAGE('tokarz.jpg');
+  }
+
+  &--olga {
+    @include BG_IMAGE('olga.jpg');
+  }
+}
+
+.crew__name {
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: $logo-color;
+}
+
+.partners__section {
+  @include FLEX(100%, row);
+  align-items: center;
+  flex-wrap: wrap;
+  padding: rem(100px 6%);
+  margin-bottom: rem(100px);
+}
+
+.partners__clients {
+  width: 30%;
+  min-width: rem(200px);
+}
+
+.partners__header {
+  width: 100%;
+  margin-bottom: rem(100px);
+  padding: 0;
+  font-size: rem(28px);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: $logo-color;
+}
+
+.clients__name {
+  display: block;
+  width: 100%;
+  margin: (0 0 10px 0);
+
+  &:last-of-type {
+    font-weight: 600;
+    padding: rem(20px 0 0 0);
+    margin: 0;
+  }
+}
+
+.clients__logos {
+  @include FLEX(70%, row);
+  align-items: center;
+  flex-wrap: wrap;
+  padding: rem(0 20px);
+  margin-bottom: rem(50px);
+}
+
+.single__logo {
+  height: rem(50px);
+  width: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: rem(50px 30px 0 0);
+}

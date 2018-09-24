@@ -54,6 +54,14 @@
   padding: rem(50px 80px);
 }
 
+.portfolio__all-videos {
+  &--active {
+    animation-name: fade;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+  }
+}
+
 .portfolio__filter {
   @include FLEX(100%, row);
   align-items: center;
@@ -110,6 +118,12 @@
   height: 100%;
   border-radius: rem(7px);
   background-color: $white-color;
+}
+
+.video-title,
+.video-category {
+  animation-name: fadeIn;
+  animation-duration: 1s;
 }
 
 .video-title {

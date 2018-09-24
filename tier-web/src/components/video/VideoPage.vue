@@ -10,17 +10,26 @@
       <div class="back__arrow"></div>
       <p class="back__text">powrót</p>
     </router-link>
-    <div class="video__item"
-    >
-      <iframe
-        class="video__frame"
-        :src="selectedVideo.videoURL"
-        frameborder="0"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
+    <div class="video__item">
+      <div class="radial__container">
+        <RadialProgressBar
+          :diameter="200"
+          :completed-steps="completedSteps"
+          :total-steps="8"
+          :strokeWidth="5"
+          :startColor="'#8aecea'"
+          :stopColor="'#297892'"
+          :innerStrokeColor="'#fffff00'"
+          v-if="!isReady"
+        >
+        </RadialProgressBar>
+      </div>
+      <vimeo-player
+        ref="player"
+        :video-id="selectedVideo.videoURL"
+        @ready="onReady"
       >
-      </iframe>
+      </vimeo-player>
     </div>
     <div class="title__container">
       <div class="title__header">
@@ -32,7 +41,7 @@
           {{ selectedVideo.title }}
         </div>
         <div class="title__description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {{ selectedVideo.description }}
         </div>
       </div>
     </div>
@@ -48,14 +57,32 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import RadialProgressBar from 'vue-radial-progress'
 import MapItem from './VideoMapItem'
 
 export default {
+  data() {
+    return {
+      completedSteps: 0,
+      isReady: false
+    }
+  },
+  created() {
+    setInterval(() => {
+      this.completedSteps += 1
+    }, 200)
+  },
   computed: {
     ...mapGetters(['selectedVideo', 'allVideos'])
   },
+  methods: {
+    onReady() {
+      this.isReady = true
+    }
+  },
   components: {
-    MapItem
+    MapItem,
+    RadialProgressBar
   }
 }
 </script>
