@@ -5,6 +5,7 @@ import store from './store'
 import PortfolioTemplate from '@/components/portfolio/PortfolioTemplate'
 import VideoPage from '@/components/video/VideoPage'
 import AboutPage from '@/components/about/AboutTemplate'
+import ContactPage from '@/components/contact/ContactTemplate'
 
 Vue.use(Router)
 
@@ -47,7 +48,8 @@ export default new Router({
     },
     {
       name: 'contact',
-      path: '/contact'
+      path: '/contact',
+      component: ContactPage
     }
   ],
   scrollBehavior() {

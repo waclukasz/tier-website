@@ -12,6 +12,9 @@ export default {
     setTimeout(() => {
       body.classList.remove('hidden')
     }, 3300)
+  },
+  created() {
+    sessionStorage.setItem('turnIntroOff', true)
   }
 }
 </script>

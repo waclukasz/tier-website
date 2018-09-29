@@ -55,6 +55,7 @@
 }
 
 .portfolio__all-videos {
+  margin-bottom: rem(100px);
   &--active {
     animation-name: fade;
     animation-duration: 0.8s;

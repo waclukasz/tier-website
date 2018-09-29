@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <IntroAnimation
-      v-if="introIsOn"
+      v-if="!startIntro"
     />
     <MainNavbar />
     <transition
@@ -21,11 +21,6 @@ import MainFooter from '@/components/footer/FooterTemplate'
 import IntroAnimation from '@/components/animation/IntroAnimation'
 
 export default {
-  data() {
-    return {
-      introIsOn: false
-    }
-  },
   created() {
     if (!this.startIntro) {
       return
@@ -39,7 +34,13 @@ export default {
     }, 3400)
   },
   computed: {
-    ...mapGetters(['startIntro'])
+    ...mapGetters(['startIntro']),
+    startingAnimation() {
+      console.log('cokolwiek')
+      const state = sessionStorage.getItem('turnIntroOff')
+      console.log(state)
+      return true
+    }
   },
   methods: {
     ...mapActions(['turnIntroOff'])

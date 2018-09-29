@@ -1,0 +1,50 @@
+.contact__container {
+  @include FLEX(100%, column);
+  justify-content: center;
+  align-items: center;
+  padding: rem(100px 0);
+}
+
+.contact__picture {
+  @include BG_IMAGE('contact_picture.jpg');
+  width: 100%;
+  height: 80vh;
+  margin-bottom: rem(100px);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contact__info {
+  @include FLEX(auto, column);
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+}
+
+.contact__header {
+  margin: rem(30px 0);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: $logo-color;
+}
+
+.contact__info-item {
+  margin: rem(0 0 10px 0);
+  font-size: rem(14px);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: $grey;
+
+  &:last-of-type {
+    margin-top: rem(20px);
+  }
+}
+
+.contact__mail {
+  color: $logo-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}

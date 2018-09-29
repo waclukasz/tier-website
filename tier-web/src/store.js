@@ -17,14 +17,13 @@ export default new Vuex.Store({
         events: 'events'
       },
       choosed: 'all'
-    },
-    startIntro: true
+    }
   },
   getters: {
     allVideos: state => state.allVideos,
     selectedVideo: state => state.selectedVideo,
     allfilters: state => state.allfilters,
-    startIntro: state => state.startIntro
+    startIntro: () => sessionStorage.getItem('turnIntroOff')
   },
   mutations: {
     SELECT_VIDEO(state, video) {

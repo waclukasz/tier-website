@@ -2,12 +2,12 @@
   <header class="portfolio__header">
     <div
       class="animated-circle"
-      v-if="startIntro"
+      v-if="!startIntro"
     >
     </div>
     <div
       class="header__logo"
-      v-if="!startIntro"
+      v-if="startIntro"
     >
     </div>
     <div class="header__content">
